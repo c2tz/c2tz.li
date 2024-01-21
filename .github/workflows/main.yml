@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: Documentation
 
 on:
   push:
@@ -6,33 +6,47 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
+    name: Build Documentation
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup Python
+      - name: Set Up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.11.1
 
-      - name: Install Python Dependencies
+      - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build MkDocs Site
-        run: |
-          mkdocs build
+      - name: Build Documentation
+        run: mkdocs build
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: site
+          path: site
+
+  deploy:
+    name: Deploy Documentation
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: site
+          path: site
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: --prod
-          github-comment: true
-          github-deployment: false
+        run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

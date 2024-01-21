@@ -3,7 +3,6 @@ site_author: c2tz
 site_description: Mes connaissances sous la forme d'une documentation accompagné de tutoriels et agrémenté d'un blog
 site_name: "@c2tz.li"
 site_url: ""
-edit_uri: edit/main/docs/
 
 theme:
   name: material

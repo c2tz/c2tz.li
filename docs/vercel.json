@@ -1,7 +1,4 @@
 {
-  "routes": [
-    { "handle": "filesystem" }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  "version": 2,
+  "builds": [{ "src": "site/**/*", "use": "@vercel/static" }]
 }

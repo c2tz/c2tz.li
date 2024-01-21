@@ -33,10 +33,15 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Git
+        run: git init
+
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25  # Use the version that works for you
+        uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod' #Optional
+          vercel-args: --prod
+          github-comment: true
+          github-deployment: false

@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: site
-          path: site
+          path: ./
 
   deploy:
     name: Deploy Documentation
@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: site
-          path: site
+          path: ./
 
       - name: Deploy to Vercel
         run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod

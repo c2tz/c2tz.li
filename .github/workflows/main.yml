@@ -19,7 +19,12 @@ jobs:
       - name: Set Up Python
         uses: actions/setup-python@v3
 
-      # Install MkDocs, other dependencies, and do whatever else you need to do, then...
+      - name: Install MkDocs
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material  # Install the Material theme, replace with your theme if needed
+
+      # Add other dependencies installation steps if needed
 
       - name: Build
         run: mkdocs build

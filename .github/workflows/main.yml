@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Vercel
-        uses: vercel/vercel@latest  # Use the version that works for you
+        uses: amondnet/vercel-action@v25  # Use the version that works for you
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}

@@ -14,39 +14,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set Up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
 
-      - name: Install MkDocs
+      - name: Install MkDocs and dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs-material  # Install the Material theme, replace with your theme if needed
-
-      # Add other dependencies installation steps if needed
+          pip install mkdocs-material
+          # Add any other dependencies your project may require
 
       - name: Build
         run: mkdocs build
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: site
-          path: site
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: site
-          path: site
-
       - name: Deploy to Vercel
-        run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        uses: vercel/vercel@latest  # Use the version that works for you
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          args: --prod

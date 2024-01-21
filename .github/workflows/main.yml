@@ -46,7 +46,7 @@ jobs:
           path: site
 
       - name: Deploy to Vercel
-        run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --target .
+        run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} ${{ github.ref == 'refs/heads/main' && '--prod' || '' }}
         working-directory: site
         
 

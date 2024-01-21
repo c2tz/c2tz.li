@@ -1,35 +1,47 @@
-name: Deploy to Vercel
+name: MkDocs Build and Deploy
 
 on:
   push:
-    branches:
-      - main  # Change this to your main branch
+    paths:
+      - docs/**
+      - mkdocs.yml
+      - .github/workflows/main.yml
+
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
+      - name: Set Up Python
+        uses: actions/setup-python@v3
 
-    - name: Install dependencies
-      run: |
-        pip install mkdocs-material
-        # Add any other dependencies your project may require
+      # Install MkDocs, other dependencies, and do whatever else you need to do, then...
 
-    - name: Build site
-      run: |
-        mkdocs build
+      - name: Build
+        run: mkdocs build
 
-    - name: Deploy to Vercel
-      uses: vercel/vercel@v21
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}  # Make sure to set VERCEL_TOKEN as a secret in your GitHub repository
-        vercel-org-id: YOUR_ORG_ID  # Replace with your Vercel organization ID
-        vercel-project-id: YOUR_PROJECT_ID  # Replace with your Vercel project ID
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: site
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: site
+          path: site
+
+      - name: Deploy to Vercel
+        run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

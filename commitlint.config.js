@@ -1,4 +1,4 @@
 module.exports = {
-    extends: ['@commitlint/config-conventional']
-    ignores: [(message) => /^Bumps \[.+]\(.+\) from .+ to .+\.$/m.test(message)],
+    extends: ['@commitlint/config-conventional'],
+    rules: { 'footer-max-line-length': [1, 'always', 1000] }
   };

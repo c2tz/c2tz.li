@@ -1,20 +1,13 @@
 name: Documentation
 
-on: [pull_request, push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  commitlint:
-    name: Check Commit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v5
-
   build:
     name: Build Documentation
-    needs: commitlint
     runs-on: ubuntu-latest
 
     steps:
@@ -53,7 +46,7 @@ jobs:
           path: site
 
       - name: Deploy to Vercel
-        run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod #remove prod for other branch than main
+        run: npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

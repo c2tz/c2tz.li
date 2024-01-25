@@ -70,6 +70,7 @@ jobs:
           path: site
 
       - name: Deploy to Vercel
+        run: |
           if [ "${{ github.actor }}" != "dependabot[bot]" ]; then
           npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod
           else

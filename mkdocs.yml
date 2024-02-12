@@ -6,3 +6,10 @@ site_url: ""
 
 theme:
   name: material
+  features:
+    - content.tooltips
+  
+markdown_extensions:
+  - abbr
+  - attr_list
+  - pymdownx.snippets

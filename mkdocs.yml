@@ -147,6 +147,28 @@ extra_css:
 
 # Footer
 extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+    feedback:
+      title: Est-ce que cette page vous est utile ?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: Cette page m'a été utile
+          data: 1
+          note: >-
+            Merci d'avoir donné votre avis!
+        - icon: material/thumb-down-outline
+          name: Cette page ne m'a pas été utile
+          data: 0
+          note: >- 
+            Merci pour votre avis! Aidez-moi à améliorer ce site en
+            utilisant <a href="https://github.com/c2tz/c2tz.li/issues/new/?title=feedback:+{title}+-+{url}">ce formulaire</a>.
+            Sachez qu'un compte GitHub est requis.
+  consent:
+    title: Un petit cookie pour la route ? 🍪
+    description: >- 
+      J'utilise des cookies pour améliorer votre expérience sur ce site (formulaire, commentaire...) mais aussi à des fins d'analyse. Vous pouvez Acceptez ou choisir ceux que vous voulez. Bonne visite ! 🚗
   generator: false
   social:
     - icon: fontawesome/brands/github

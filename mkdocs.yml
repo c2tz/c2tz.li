@@ -173,5 +173,17 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/c2tz
+    - icon: simple/bluesky
+      link: https://bsky.app/profile/97.pm
+    - icon: simple/matrix
+      link: https://www.example.com/
+    - icon: simple/strava
+      link: https://www.example.com/
+    - icon: simple/mastodon
+      link: https://crb.re/
+    - icon: simple/peertube
+      link: https://97.pm/
+    - icon: fontawesome/solid/earth-europe
+      link: https://www.example.com/
       
-copyright: Aucun droit réservé - c2tz <br> Made with 💘 and mkdocs
+copyright: Aucun droit réservé - c2tz <br> Fait avec <a href="https://www.mkdocs.org" rel="noreferrer noopener">Mkdocs </a> et propulsé par <a href="https://vercel.com/" rel="noreferrer noopener">Vercel ▲</a>  

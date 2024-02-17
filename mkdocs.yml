@@ -12,6 +12,7 @@ theme:
   language: fr
   name: material
   logo: assets/logo.png
+  favicon: assets/favicon.png
   font:
     text: Roboto
     code: Roboto Mono

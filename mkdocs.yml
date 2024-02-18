@@ -163,7 +163,7 @@ extra:
           data: 0
           note: >- 
             Merci pour votre avis! Aidez-moi à améliorer ce site en
-            utilisant <a href="https://github.com/c2tz/c2tz.li/issues/new/?title=feedback:+{title}+-+{url}">ce formulaire</a>.
+            utilisant <a href="https://github.com/c2tz/c2tz.li/issues/new/?assignees=c2tz&labels=enhancement&projects=&template=feature_request.md&title=feedback: for title+{title}+and url+{url}">ce formulaire</a>.
             Sachez qu'un compte GitHub est requis.
   consent:
     title: Un petit cookie pour la route ? 🍪

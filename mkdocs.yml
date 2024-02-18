@@ -1,8 +1,189 @@
 # Project information
 site_author: c2tz
-site_description: Mes connaissances sous la forme d'une documentation accompagné de tutoriels et agrémenté d'un blog
+site_description: Documentation, notes et blog de c2tz
 site_name: "@c2tz.li"
 site_url: ""
+edit_uri: edit/main/docs/
 
+# Configuration
 theme:
+  custom_dir: custom
+  direction: ltr
+  language: fr
   name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+    annotation: material/arrow-right-circle
+  # Color
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-7
+        name: "Passer en mode: Clair"
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: "Passer en mode: Sombre"
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-auto
+        name: "Passer en mode: Automatique"
+  # Feature
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: ''
+      permalink_title: Lien Permanent
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: c2tz
+      repo: c2tz.li
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tilde
+
+# Repository information
+repo_name: c2tz/c2tz.li
+repo_url: https://github.com/c2tz/c2tz.li
+
+# Page tree
+nav:
+  - Accueil: index.md
+  - Blog:
+    - blog/index.md
+
+# Plugins
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+      timezone: Europe/Paris
+      type: timeago
+      locale: fr
+  - glightbox
+  - git-committers:
+      repository: c2tz/c2tz.li
+      branch: main
+  - blog :
+      post_date_format: full
+      post_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+# Custom
+extra_css:
+  - stylesheets/extra.css
+
+# Footer
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+    feedback:
+      title: Est-ce que cette page vous est utile ?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: Cette page m'a été utile
+          data: 1
+          note: >-
+            Merci d'avoir donné votre avis!
+        - icon: material/thumb-down-outline
+          name: Cette page ne m'a pas été utile
+          data: 0
+          note: >- 
+            Merci pour votre avis! Aidez-moi à améliorer ce site en
+            utilisant <a href="https://github.com/c2tz/c2tz.li/issues/new/?assignees=c2tz&labels=enhancement&projects=&template=feature_request.md&title=feedback: for title+{title}+and url+{url}">ce formulaire</a>.
+            Sachez qu'un compte GitHub est requis.
+  consent:
+    title: Un petit cookie pour la route ? 🍪
+    description: >- 
+      J'utilise des cookies pour améliorer votre expérience sur ce site (formulaire, commentaire...) mais aussi à des fins d'analyse. Vous pouvez Acceptez ou choisir ceux que vous voulez. Bonne visite ! 🚗
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/c2tz
+    - icon: simple/bluesky
+      link: https://bsky.app/profile/97.pm
+    - icon: simple/matrix
+      link: https://www.example.com/
+    - icon: simple/strava
+      link: https://www.example.com/
+    - icon: simple/mastodon
+      link: https://crb.re/
+    - icon: simple/peertube
+      link: https://97.pm/
+    - icon: fontawesome/solid/earth-europe
+      link: https://www.example.com/
+      
+copyright: Aucun droit réservé - c2tz <br> Fait avec <a href="https://www.mkdocs.org" rel="noreferrer noopener">Mkdocs </a> et propulsé par <a href="https://vercel.com/" rel="noreferrer noopener">Vercel ▲</a>  

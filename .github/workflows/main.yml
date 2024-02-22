@@ -72,7 +72,7 @@ jobs:
       - name: Deploy to Vercel
         run: |
           if [ "${{ github.actor }}" != "dependabot[bot]" ]; then
-          npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }} --prod
+          npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }}
           else
           echo "Skipping deployment for Dependabot pull request."
           fi

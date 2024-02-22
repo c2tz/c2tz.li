@@ -39,16 +39,18 @@ theme:
       toggle:
         icon: material/brightness-auto
         name: "Passer en mode: Automatique"
+  watch:
+    - includes
   # Feature
   features:
     - announce.dismiss
     - content.action.edit
     - content.action.view
-    - content.code.annotate
+    # content.code.annotate
     - content.code.copy
     # - content.code.select
     - content.tabs.link
-    - content.tooltips
+    # - content.tooltips
     # - header.autohide
     # - navigation.expand
     - navigation.footer
@@ -105,7 +107,7 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.snippets:
       auto_append:
-        - includes/mkdocs.md
+        - includes/abbreviations.md
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tabbed:
@@ -125,16 +127,23 @@ nav:
 # Plugins
 plugins:
   - git-revision-date-localized:
-      enable_creation_date: true
+      enable_creation_date: false
       timezone: Europe/Paris
       type: timeago
       locale: fr
+      fallback_to_build_date: true
   - glightbox
   - git-committers:
       repository: c2tz/c2tz.li
       branch: main
-  - blog :
+      token: "MKDOCS_GIT_COMMITTERS_APIKEY"
+  - blog:
+      blog_dir: blog
+      blog_toc: true
       post_date_format: full
+      post_excerpt: required
+      post_readtime: true
+      post_readtime_words_per_minute: 250
       post_slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower

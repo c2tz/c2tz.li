@@ -1,0 +1,1 @@
+*[GTO]: Great Teacher Onizuka

@@ -33,7 +33,6 @@ jobs:
   build:
     name: Build Documentation
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -57,9 +56,10 @@ jobs:
           name: site
           path: site
 
-  deploy:
-    name: Deploy Documentation
+  deploy-dev:
+    name: Deploy Documentation to Dev
     needs: build
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
 
     steps:
@@ -69,13 +69,29 @@ jobs:
           name: site
           path: site
 
-      - name: Deploy to Vercel
+      - name: Deploy to Vercel (Dev)
         run: |
-          if [ "${{ github.actor }}" != "dependabot[bot]" ]; then
-          npx vercel --yes --token ${{ secrets.VERCEL_TOKEN }}
-          else
-          echo "Skipping deployment for Dependabot pull request."
-          fi
+          npx vercel --prod=false --yes --token ${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+  deploy-prod:
+    name: Deploy Documentation to Prod
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+
+      - name: Deploy to Vercel (Prod)
+        run: |
+          npx vercel --prod=true --yes --token ${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

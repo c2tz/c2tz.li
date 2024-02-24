@@ -127,7 +127,7 @@ nav:
 # Plugins
 plugins:
   - git-revision-date-localized:
-      enable_creation_date: false
+      enable_creation_date: true
       timezone: Europe/Paris
       type: timeago
       locale: fr

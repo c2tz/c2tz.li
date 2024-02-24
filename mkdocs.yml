@@ -127,7 +127,7 @@ nav:
 # Plugins
 plugins:
   - git-revision-date-localized:
-      enable_creation_date: false
+      enable_creation_date: true
       timezone: Europe/Paris
       type: timeago
       locale: fr
@@ -136,7 +136,6 @@ plugins:
   - git-committers:
       repository: c2tz/c2tz.li
       branch: main
-      token: "MKDOCS_GIT_COMMITTERS_APIKEY"
   - blog:
       blog_dir: blog
       blog_toc: true

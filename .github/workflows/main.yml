@@ -15,7 +15,6 @@ jobs:
   commitlint:
     name: Check
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -66,7 +65,9 @@ jobs:
           name: site
           path: site
 
-  Deploy-Production:
+  deploy:
+    name: Deploy Production
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

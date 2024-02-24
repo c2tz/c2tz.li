@@ -1,4 +1,3 @@
-
 name: CBD (DEV)
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -6,17 +5,16 @@ env:
 
 on:
   push:
-    branches-ignore:
-      - main
+    branches:
+      - develop
   pull_request:
-    branches-ignore:
-      - main
+    branches:
+      - develop
 
 jobs:
   commitlint:
     name: Check
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -67,7 +65,9 @@ jobs:
           name: site
           path: site
 
-  Deploy-Preview:
+  deploy:
+    name: Deploy Preview
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

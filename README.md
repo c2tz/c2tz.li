@@ -1,4 +1,5 @@
-![c2tz - c2tz li](https://github.com/c2tz/c2tz.li/assets/95414249/2af5de7a-ea0e-4538-a937-f5c6d4a7bdd1)
+![image](https://github.com/c2tz/c2tz.li/assets/95414249/d99114f0-f9ea-4825-be34-14c3307df859)
+
 
 ---
 

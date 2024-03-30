@@ -3,15 +3,15 @@ updates:
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: daily
-    target-branch: main
+      interval: weekly
+    target-branch: develop
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: daily
-    target-branch: main
+      interval: weekly
+    target-branch: develop
   - package-ecosystem: pip
     directory: "/"
     schedule:
-      interval: daily
-    target-branch: main
+      interval: weekly
+    target-branch: develop

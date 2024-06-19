@@ -1,0 +1,58 @@
+/* :root {
+    --md-text-font: "Roboto", sans-serif;
+}
+
+@font-face {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src:
+		local("Roboto"),
+		local("Roboto-Regular"),
+		url("/assets/fonts/roboto-regular.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+} */
+
+.headerlink {
+    --permalink-size: 1em;
+    --permalink-spacing: 4px;
+    width: calc(var(--permalink-size) + var(--permalink-spacing));
+    height: var(--permalink-size);
+    vertical-align: middle;
+    background-color: var(--md-default-fg-color--lighter);
+    background-size: var(--permalink-size);
+    mask-size: var(--permalink-size);
+    -webkit-mask-size: var(--permalink-size);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    visibility: visible;
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" aria-hidden="true"><path fill-rule="evenodd" d="M3.9,12C3.9,10.29 5.29,8.9 7,8.9H11V7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H11V15.1H7C5.29,15.1 3.9,13.71 3.9,12M8,13H16V11H8V13M17,7H13V8.9H17C18.71,8.9 20.1,10.29 20.1,12C20.1,13.71 18.71,15.1 17,15.1H13V17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7Z" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" aria-hidden="true"><path fill-rule="evenodd" d="M3.9,12C3.9,10.29 5.29,8.9 7,8.9H11V7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H11V15.1H7C5.29,15.1 3.9,13.71 3.9,12M8,13H16V11H8V13M17,7H13V8.9H17C18.71,8.9 20.1,10.29 20.1,12C20.1,13.71 18.71,15.1 17,15.1H13V17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7Z" /></svg>');
+}
+  
+  [id]:target .headerlink {
+    background-color: var(--md-typeset-a-color);
+  }
+  
+  .headerlink:hover {
+    background-color: var(--md-accent-fg-color) !important;
+  }
+
+  .video-wrapper {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+  }
+  .video-wrapper > iframe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }

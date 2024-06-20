@@ -1,7 +1,7 @@
 # Project information
 site_author: c2tz
-site_description: Documentation, notes et blog de c2tz
-site_name: "@c2tz.li"
+site_description: Blog, notes et docs de c2tz
+site_name: "c2tz.li"
 site_url: ""
 edit_uri: edit/main/docs/
 
@@ -46,24 +46,24 @@ theme:
     - announce.dismiss
     - content.action.edit
     - content.action.view
-    # content.code.annotate
+    # - content.code.annotate
     - content.code.copy
     # - content.code.select
-    - content.tabs.link
+    # - content.tabs.link
     # - content.tooltips
     # - header.autohide
     # - navigation.expand
-    - navigation.footer
-    - navigation.indexes
-    # - navigation.instant
+    # - navigation.footer
+    # - navigation.indexes
+    - navigation.instant
     # - navigation.instant.prefetch
-    - navigation.instant.progress
+    # - navigation.instant.progress
     # - navigation.prune
     - navigation.sections
-    - navigation.tabs
+    # - navigation.tabs
     # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
+    # - navigation.top
+    # - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
@@ -80,7 +80,7 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: ''
-      permalink_title: Lien Permanent
+      permalink_title: Lien permanent
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -110,6 +110,7 @@ markdown_extensions:
         - includes/abbreviations.md
   - pymdownx.tasklist:
       custom_checkbox: true
+      clickable_checkbox: true
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tilde
@@ -120,9 +121,7 @@ repo_url: https://github.com/c2tz/c2tz.li
 
 # Page tree
 nav:
-  - Accueil: index.md
-  - Blog:
-    - blog/index.md
+  - Blog: index.md
 
 # Plugins
 plugins:
@@ -138,8 +137,8 @@ plugins:
       branch: main
       token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
   - blog:
-      blog_dir: blog
-      blog_toc: true
+      blog_dir: .
+      blog_toc: false
       post_date_format: full
       post_excerpt: required
       post_readtime: true

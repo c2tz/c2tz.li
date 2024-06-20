@@ -22,7 +22,7 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Configure ENV Variables
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x

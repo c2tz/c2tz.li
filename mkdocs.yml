@@ -136,6 +136,7 @@ plugins:
   - git-committers:
       repository: c2tz/c2tz.li
       branch: main
+      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
   - blog:
       blog_dir: blog
       blog_toc: true

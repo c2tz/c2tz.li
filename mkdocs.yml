@@ -28,14 +28,14 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: white
-      accent: indigo
+      accent: black
       toggle:
         icon: material/brightness-4
         name: "Passer en mode: Sombre"
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
+      primary: custom
+      accent: black
       toggle:
         icon: material/brightness-auto
         name: "Passer en mode: Automatique"
@@ -159,7 +159,7 @@ extra:
     provider: google
     property: G-XXXXXXXXXX
     feedback:
-      title: Est-ce que cette page vous est utile ?
+      title: Que pensez-vous de cette page ?
       ratings:
         - icon: material/thumb-up-outline
           name: Cette page m'a été utile
@@ -173,10 +173,10 @@ extra:
             Merci pour votre avis! Aidez-moi à améliorer ce site en
             utilisant <a href="https://github.com/c2tz/c2tz.li/issues/new/?assignees=c2tz&labels=enhancement&projects=&template=feature_request.md&title=feedback: for title+{title}+and url+{url}">ce formulaire</a>.
             Sachez qu'un compte GitHub est requis.
-  consent:
-    title: Un petit cookie pour la route ? 🍪
-    description: >- 
-      J'utilise des cookies pour améliorer votre expérience sur ce site (formulaire, commentaire...) mais aussi à des fins d'analyse. Vous pouvez Acceptez ou choisir ceux que vous voulez. Bonne visite ! 🚗
+  # consent:
+  #  title: Un petit cookie pour la route ? 🍪
+  #  description: >- 
+  #    J'utilise des cookies pour améliorer votre expérience sur ce site (formulaire, commentaire...) mais aussi à des fins d'analyse. Vous pouvez Acceptez ou choisir ceux que vous voulez. Bonne visite ! 🚗
   generator: false
   social:
     - icon: fontawesome/brands/github
@@ -194,4 +194,4 @@ extra:
     - icon: fontawesome/solid/earth-europe
       link: https://www.example.com/
       
-copyright: Aucun droit réservé - c2tz <br> Fait avec <a href="https://www.mkdocs.org" rel="noreferrer noopener">Mkdocs </a> et propulsé par <a href="https://vercel.com/" rel="noreferrer noopener">Vercel ▲</a>  
+copyright: Aucun droit réservé - c2tz <br> Fait avec <a href="https://squidfunk.github.io/mkdocs-material" rel="noreferrer noopener">Mkdocs </a> et propulsé par <a href="https://github.com/" rel="noreferrer noopener">GitHub Pages</a>  

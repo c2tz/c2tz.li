@@ -1,5 +1,6 @@
 {% if page.meta.comments %}
-  <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
+<!-- That custom parts can cause problem with i18n -->
+<h2 id="comments">Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent"></a></h2>
   <!-- Insert generated snippet here -->
   <script src="https://giscus.app/client.js"
   data-repo="c2tz/c2tz.li"

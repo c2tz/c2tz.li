@@ -1,0 +1,8 @@
+{
+    "origins": [
+      "https://blog.cta.li"
+    ],
+    "originsRegex": [
+      "http://localhost:[0-9]+"
+    ]
+  }

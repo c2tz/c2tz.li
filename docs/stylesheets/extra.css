@@ -84,7 +84,11 @@
   }
 
   .md-nav__link--passed {
-    color: var(--md-custom-fg-color--lighter);
+    color: #cacaca;
+  }
+
+  main .gsc-loading-image {
+    background-image: url("https://img.itch.zone/aW1nLzg5MzU1NzIuZ2lm/original/NLEAzH.gif");
   }
 
   /* custom css for dark theme */
